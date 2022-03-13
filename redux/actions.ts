@@ -1,24 +1,24 @@
 import * as types from "./actionType";
 import axios from 'axios';
 
-const getTasks = (tasks) => ({
+const getTasks = (tasks: any) => ({
     type: types.GET_TODO,
     payload: tasks,
 });
 
-const taskDeleted = (id) => ({
+const taskDeleted = (id: any) => ({
     type: types.DELETE_TODO,
     payload: id,
 })
 
-const taskAdded = (task) => ({
+const taskAdded = (task: any) => ({
     type: types.ADD_TODO,
     payload: task,
 })
 
 
 export const loadTasks = () => {
-    return function (dispatch) {
+    return function (dispatch: any) {
         axios.get(`https://jsonplaceholder.typicode.com/todos`).then((response) => {
             console.log("response", response);
             dispatch(getTasks(response.data));
@@ -29,8 +29,8 @@ export const loadTasks = () => {
     };
 };
     
-export const deleteTask = (id) => {
-    return function (dispatch) {
+export const deleteTask = (id: any) => {
+    return function (dispatch: any) {
         axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
         .then((response) => {
             console.log("response", response);
@@ -42,8 +42,8 @@ export const deleteTask = (id) => {
     };
 };
 
-export const addTask = (task) => {
-    return function (dispatch) {
+export const addTask = (task: any) => {
+    return function (dispatch: any) {
         axios.post(`https://jsonplaceholder.typicode.com/todos`, task)
         .then((response) => {
             console.log("response", response);

@@ -6,7 +6,7 @@ const initialState = {
     loading: false
 }
 
-const tasksReducers = (state = initialState, action) => {
+const tasksReducers = (state = initialState, action: any) => {
     switch(action.type) {
         case types.GET_TODO:
             return { 
@@ -18,7 +18,7 @@ const tasksReducers = (state = initialState, action) => {
             return{
                 ...state,
                 loading: false,
-                tasks: state.tasks.filter((item) => item.id !== action.payload),
+                tasks: state.tasks.filter((item: any) => item.id !== action.payload),
             }
         case types.ADD_TODO:
             return{
